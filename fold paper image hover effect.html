@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fold paper image</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    .fold {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%) skewY(0deg);
+      width: 204px;
+      height: 380px;
+      background: url("2.jpg");
+      background-size: cover;
+      background-position: center;
+      border-top: 10px solid #ff6d3f;
+      border-bottom: 10px solid #ff6d3f;
+      transition: 1s;
+    }
+    .fold:hover {
+      transform: translate(-50%,-50%) skewY(15deg);
+    }
+    .fold:before {
+      content: "";
+      position: absolute;
+      width: 80%;
+      height: 100%;
+      background: url("2.jpg");
+      background-size: cover;
+      background-position: -6px,0;
+      top: -10px;
+      left: calc(-80% - 10px);
+      border-top: 10px solid #ff6d3f;
+      border-bottom: 10px solid #ff6d3f;
+      border-left: 10px solid #ff6d3f;
+      transform: perspective(1000px) skewY(-25deg) rotateY(-90deg);
+      transform-origin: right;
+      transition: 1s;
+      box-shadow: inset -15px 0 15px rgba(0,0,0,.1);
+    }
+    .fold:hover:before {
+      transform: perspective(1000px) skewY(-25deg) rotateY(0deg);
+    }
+    .fold:after {
+      content: "";
+      position: absolute;
+      width: 80%;
+      height: 100%;
+      background: url("2.jpg");
+      background-size: cover;
+      background-position: 170px,0;
+      top: -10px;
+      right: calc(-80% - 10px);
+      border-top: 10px solid #ff6d3f;
+      border-bottom: 10px solid #ff6d3f;
+      border-right: 10px solid #ff6d3f;
+      transform: perspective(1000px) skewY(-25deg) rotateY(-90deg);
+      transform-origin: left;
+      transition: 1s;
+      box-shadow: inset 15px 0 15px rgba(0,0,0,.1);
+    }
+    .fold:hover:after {
+      transform: perspective(1000px) skewY(-25deg) rotateY(0deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="fold">
+  </div>
+</body>
+</html>
